@@ -7,5 +7,8 @@ class imagess(models.Model):
     comment = models.CharField(max_length = 200)
     mood = models.CharField(max_length = 200)
     title = models.CharField(max_length = 200)
-class photoform(forms.Form):
-    picture = models.ImageField(upload_to = 'd:/photo/img/stati')
+    lat = models.FloatField()
+    lon = models.FloatField()
+class t(models.Model):
+    title = models.CharField(max_length = 200)
+

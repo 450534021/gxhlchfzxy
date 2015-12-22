@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<style type="text/css">
+body {background-image:url(http://lllcccfff-abc.stor.sinaapp.com/bck.jpg); background-repeat:no-repeat; background-attachment:fixed} </style> 
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />  
+ <body leftmargin = "170"> 
+ <table> 
+ <td><font size = "10" face = "华文行楷" color = "MistyRose">     照片管理</font><font size = "5" face = "" color = "Pink"><u><i>www.photo.com</i></u></font></td><td width="65%" align="right"><marquee behavior=alternate><font size = "6" face = "方正舒体" color = "LightYellow"><BLINK>照片整理的好帮手</font></marquee></td></p></table>
+
+<hr size="5" width = "100%" color = "SteelBlue ">
+ 
+ <div id="blink" align = "right"><font size= "4" face = "Papyrus">Happy everyday!</font></div> 
+<script language="javascript"> 
+function changeColor(){ 
+var color="Linen|LightYellow|"; 
+color=color.split("|"); 
+document.getElementById("blink").style.color=color[parseInt(Math.random() * color.length)]; 
+} 
+setInterval("changeColor()",400); 
+</script>
+
+ <form method="post" enctype="multipart/form-data">
+<table>
+<style> 
+#mybutton{ 
+    padding:5px 15px; 
+} 
+</style><br/><br/> 
+<style>
+.td{width:100px;}
+</style>
+
+ {% csrf_token %}
+<tr><td><div id="preview"></div></td><tr>
+<script type="text/javascript">    
+var prevDiv = document.getElementById("preview"); 
+prevDiv.innerHTML = '<img src = "http://lllcccfff-abc.stor.sinaapp.com/stati/{{newname}}" alt = "new">';
+if({{newname}}==0) {prevDiv.innerHTML = '<img src = "http://lllcccfff-abc.stor.sinaapp.com/stati/{{pname}}.jpg" alt = "yunduanmeihua">';}
+
+
+ </script>
+
+{{newname}}
+
+
+<tr><td><font size = "5" color = "DarkCyan" face = "方正舒体">名称：</font><input type = "text" name = "cname" value = {{pname}} style = 
+"background:none;color:BlueViolet;width:500px;height:40px;font-size:30px;font-family:方正舒体; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid"></td></tr>
+
+<tr><td><font size = "5" color = "DarkCyan" face = "方正舒体">心情：</font><input type = "text" name = "cmood" value = {{pmood}} style = 
+"background:none;color:BlueViolet;width:500px;height:40px;font-size:30px;font-family:方正舒体; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid"></td></tr>
+
+<tr><td><font size = "5" color = "DarkCyan" face = "方正舒体">评论：</font><input type = "text" name = "ccomment" value = {{pcomment}} style = 
+"background:none;color:BlueViolet;width:500px;height:40px;font-size:30px;font-family:方正舒体; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid"></td>
+<td><font size = "8"><a href="/editt/?aaa={{pname}}"><input type = "submit" style = 
+"background:none;color:DarkCyan;borderBottomStyle:double;width:100px;height:40px;font-size:30px;font-family:华文彩云;" name = "correct" value = "修改"></td>
+<td><font size = "8"><a href="/manage/"><input type = "button" style = 
+"background:none;color:DarkCyan;borderBottomStyle:double;width:100px;height:40px;font-size:30px;font-family:华文彩云;" name = "correct" value = "返回"></a></td>
+
+
+ </form>
+ </body>
+</html>

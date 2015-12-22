@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import MySQLdb
+import sae
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -36,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'img',
 )
 
@@ -58,10 +61,14 @@ WSGI_APPLICATION = 'photo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': sae.const.MYSQL_DB,
+	'USER': sae.const.MYSQL_USER,
+	'PASSWORD': sae.const.MYSQL_PASS,
+	'HOST': sae.const.MYSQL_HOST,
+	'PORT': sae.const.MYSQL_PORT,
+	}
     }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -80,14 +87,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/start/'
 TEMPLATE_DIRS = ('./img/',)
 
-MEDIA_ROOT = 'd:\photo\img'
+MEDIA_ROOT = '/data1/www/htdocs/825/lllcccfff/1/img'
+STATIC_ROOT = '/data1/www/htdocs/825/lllcccfff/1/img'
 
 
+STATICFILES_DIRS = (  
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".  
+    # Always use forward slashes, even on Windows.  
+    # Don't forget to use absolute paths, not relative paths.  
+  
+)  
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760
 
 
+DEFAULT_FILE_STORAGE = 'sae.ext.django.storage.backend.Storage'
+
+STORAGE_BUCKET_NAME = 'abc'
+# ref: https://docs.djangoproject.com/en/dev/topics/files/
 
 
 

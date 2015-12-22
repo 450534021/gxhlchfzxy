@@ -1,7 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
+<style type="text/css">
+body {background-image:url(http://lllcccfff-abc.stor.sinaapp.com/bck.jpg); background-repeat:no-repeat; background-attachment:fixed} </style> 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />  
- <body  background = "/stati/bck.jpg" leftmargin = "170">
+ <body leftmargin = "170">
  <table> 
  <td><font size = "10" face = "华文行楷" color = "MistyRose">     照片管理</font><font size = "5" face = "" color = "Pink"><u><i>www.photo.com</i></u></font></td><td width="65%" align="right"><marquee behavior=alternate><font size = "6" face = "方正舒体" color = "LightYellow"><BLINK>照片整理的好帮手</font></marquee></td></p></table>
 
@@ -30,7 +32,7 @@ setInterval("changeColor()",400);
 <style type="text/css">  
  #preview, .img, img  
  {  
- width:650px;  
+ width:600px;  
  height:500px;  
  }  
  #preview  
@@ -44,8 +46,8 @@ border:1px solid #000;
 </style>
 
  {% csrf_token %}
-<td rowspan = "4"><div id="preview"></div></td>
-<td><input class="btn_more" type="submit" name = "open" style = "background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" onclick="file.click()"  id="mybutton" value="浏览"/><input type="file" id = "file" name = "file" onchange="preview(this)"/></td>
+<td rowspan = "3"><div id="preview"></div></td>
+<td><input type="file" id = "file" name = "file" onchange="preview(this)"/></td>
 
  <script type="text/javascript">    
  function preview(file)  
@@ -56,7 +58,7 @@ border:1px solid #000;
  var reader = new FileReader();  
  reader.onload = function(evt){  
 	
-  prevDiv.innerHTML = '<img src="' + evt.target.result + '" />';  
+  prevDiv.innerHTML = '<img src="' + evt.target.result + '">';  
 }    
  reader.readAsDataURL(file.files[0]);  
 }  
@@ -66,16 +68,17 @@ border:1px solid #000;
  }  
  }  
  </script>
- <tr><td><font size = "8"><input type = "submit" style = "background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "save" value = "保存"></td></tr>
-<tr><td><font size = "8"><input type = "submit" style = "background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "delete" value = "删除"></td></tr>
+ <tr><td><font size = "8"><a href = "
+/manage/"><input type = "button" style = 
+"background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "manag" value = "管理云端"></a></td></tr>
 
-<tr><td><font size = "8"><input type = "submit" style = "background:none;color:DarkCyan;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "beau" value = "美化"></td></tr>
+<tr><td><font size = "8"><a href = "/pilbeau/"><input type = "button" style = "background:none;color:DarkCyan;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "beau" value = "美化" ></a></td></tr>
 
 <tr>
 <td>
 <table>
    
-     <td><font size = "6" face = "方正舒体" color = "DarkCyan">心情    :</font></td>
+     <td><font size = "6" face = "方正舒体" color = "DarkCyan">添加心情    :</font></td>
 <td><input type = "text" name = "writemood" style = 
 "background:none;color:DarkCyan;width:500px;height:50px;font-size:30px;font-family:华文彩云; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid"></td> 
 </table>
@@ -84,28 +87,11 @@ border:1px solid #000;
 <td>
 <table>
    
-     <td><font size = "6" face = "方正舒体" color = "DarkCyan">评论    :</font></td>
+     <td><font size = "6" face = "方正舒体" color = "DarkCyan">添加评论    :</font></td>
 <td><input type = "text" name = "writecomment" style = 
 "background:none;color:DarkCyan;width:500px;height:50px;font-size:30px;font-family:华文彩云; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid"></td></table>
 
-<td><font size = "8"><input type = "submit" style = 
-"background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "write" value = "地理位置"></td></tr>
-<tr>
-<td>
-<table>
-   
-     <td><font size = "6" face = "方正舒体" color = "DarkCyan">输入评论:</font></td>
-<td><input type = "text" style = 
-"background:none;color:DarkCyan;width:445px;height:50px;font-size:30px;font-family:华文彩云; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid" name = "search"></td></table>
-
-
-<td><font size = "8"><input type = "submit" style = 
-"background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "write" value = "查询"></td>
-
-
-</tr>
-
-</table>
+<td><font size = "8"><input type = "submit" style = "background:none;color:DarkCyan;borderBottomStyle:double;width:200px;height:60px;font-size:30px;font-family:华文彩云;" name = "save" value = "上传到云端" ></td></tr>
  </form>
 
  

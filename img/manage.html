@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<style type="text/css">
+body {background-image:url(http://lllcccfff-abc.stor.sinaapp.com/bck.jpg); background-repeat:no-repeat; background-attachment:fixed} </style> 
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />  
+ <body leftmargin = "170"> 
+ <form method="get" enctype="multipart/form-data">
+ <table> 
+ <td><font size = "10" face = "华文行楷" color = "MistyRose">     照片管理</font><font size = "5" face = "" color = "Pink"><u><i>www.photo.com</i></u></font></td><td width="65%" align="right"><marquee behavior=alternate><font size = "6" face = "方正舒体" color = "LightYellow"><BLINK>照片整理的好帮手</font></marquee></td></p></table>
+
+<hr size="5" width = "100%" color = "SteelBlue ">
+<td><a href="/start/"><div id="blink" align = "right"><td><font size = "8"><input type = "submit" style = 
+"background:none;color:Yellow;borderBottomStyle:double;width:145px;height:50px;font-size:26px;font-family:黑体;" name = "searc" value = "显示全部"></font></td><font size= "6" face = "Papyrus">添加图片</font></div></a></td>
+<td><font size = "6" face = "方正舒体" color = "Turquoise">输入评论:</font></td>
+ <td><input type = "text" style = 
+"background:none;color:Turquoise;width:50%;height:40px;font-size:30px;font-family:华文彩云; border-left:Turquoise 1px solid;border-right:Turquoise 1px solid;border-top:Turquoise 1px solid;border-bottom:Turquoise 1px solid" name = "writesearch"></td>
+
+
+<td><font size = "8"><input type = "submit" style = 
+"background:none;color:Turquoise;borderBottomStyle:double;width:140px;height:50px;font-size:26px;font-family:华文彩云;" name = "search" value = "按评论查询"></font></td>
+
+ 
+<script language="javascript"> 
+function changeColor(){ 
+var color="Linen|LightYellow|"; 
+color=color.split("|"); 
+document.getElementById("blink").style.color=color[parseInt(Math.random() * color.length)]; 
+document.getElementById("iblink").style.color=color[parseInt(Math.random() * color.length)]; 
+} 
+setInterval("changeColor()",400); 
+</script>
+ 
+<style type="text/css">  
+ #preview  
+ {  
+border:1px solid #000;  
+width: 128px;
+height:128px;
+}  
+ </style> 
+
+
+<table>
+<style> 
+#mybutton{ 
+    padding:5px 15px; 
+} 
+</style><br/><br/> 
+<style>
+.td{width:100px;}
+</style>
+
+ {% csrf_token %}
+<ul>
+   {% for each in A %}
+   <tr>
+	<td><div id={{each.0}}><img src = "http://lllcccfff-abc.stor.sinaapp.com/manage/{{each.0}}" alt = "hahaha"></div></a></td>
+    <td><table><tr><td><font size = "5" face = "华文细黑" color = "BlueViolet">名称：{{each.0}}</font></td></tr>
+      <tr><td><font size = "5" face = "华文细黑" color = "BlueViolet">时间：{{each.1}}</font></td></tr>
+      <tr><td><font size = "5" face = "华文细黑" color = "BlueViolet">心情：{{each.2}}</font></td></tr>
+      <tr><td><font size = "5" face = "华文细黑" color = "BlueViolet">评论：{{each.3}}</font></td></tr></table></td>
+<td><table><tr><td><a href= "/editt/?atitle={{each.0}}"><font size = "4" face = "Pristina" color = "DarkCyan">编辑</a></td></tr>
+<tr><td><a href= "/pilbeau/?btitle={{each.0}}"><font size = "4" face = "Pristina" color = "DarkCyan">美化</a></td></tr>
+<tr><td><a href= "/manage/?ctitle={{each.0}}"><font size = "4" face = "Pristina" color = "DarkCyan">删除</a></td></tr>
+<tr><td><a href= "/map/?dtitle={{each.0}}"><font size = "4" face = "Pristina" color = "DarkCyan">显示在地图</a></td></tr>
+
+</table></td>
+ 
+   </tr>
+   {% endfor %}
+<a href="/map/"><div id="iblink" align = "right"><font size= "4" face = "Papyrus">全部显示在地图→</font></div></a>
+</ul>
+ </form>
+
+ </body>
+</html>
